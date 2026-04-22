@@ -7,34 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		59D3C77820A322F721520814 /* AskTheDuckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26E9E8385C36DFAE3BD0EA /* AskTheDuckApp.swift */; };
-		5839F4B615BD0DC46C7E895B /* PoolDuckTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2BB31CFCB3EDA0DF92A2 /* PoolDuckTheme.swift */; };
-		AFB181850FFC861FE9F23552 /* ProblemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32380C1137A2701F3E0E3B67 /* ProblemType.swift */; };
-		0B5915944A00865A3FCB13B4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7544278A8AFFDD70EA0B45 /* Message.swift */; };
-		C6EC3E0624C4D37C839812F3 /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70E80400227692E6DC7EC46 /* CustomerInfo.swift */; };
-		979620C527ED3696BA0EFF45 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAC090ECCC0B4EE85F7C412 /* Ticket.swift */; };
-		38D42484CF476EC1A7B6BE2D /* ClaudeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD96814FD25CDDE9C90E814 /* ClaudeService.swift */; };
-		42B12FBDB19DD3C6E3ABD7A4 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705BF3B65510B3E234FD525 /* SpeechService.swift */; };
-		0CEAD260A3C4677E64D41009 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B96BBDF7CA61B0FFEC8F5C /* AuthService.swift */; };
-		57EC58804C53D1762113E9C9 /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDBFB955A6AC9E18CD80534 /* MediaService.swift */; };
-		8C4356AFED0D871BF2F45A1A /* TicketStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7DF6F0474D1273543C456A /* TicketStore.swift */; };
-		49793D74BD4C39D8879FBA5A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3B7194800365B8C4B44FB /* AuthViewModel.swift */; };
-		09EB9E4D01FE612D3CA5CC50 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C55913A835231D88924923 /* ChatViewModel.swift */; };
-		A6514E5802D1276DB83E8D4F /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7A74C7B076D15C1C5D761 /* AdminViewModel.swift */; };
-		CFB7565F7DCFB9B826B481E0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B6AF955F5EE3A648C20DE8 /* LoginView.swift */; };
-		16DB2E9A20ED7BBC9B7592AB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD74EBD1DC9DD3188E02D4E /* HomeView.swift */; };
-		C0BDDBADEAD08417F4D2DE02 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D1993632C51B79DE37B5F /* ChatView.swift */; };
-		53EEA30201BCA3F33394D58F /* MediaPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2EAB9CBED71FBF15FA1BD /* MediaPickers.swift */; };
-		03C3FF9B25FA384DB7076BB6 /* CustomerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A0DDA91A075A10B323CE5 /* CustomerInfoView.swift */; };
-		7CDB428FEE034C3AEBA266B7 /* EscalateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C35E578017B3691B3F111 /* EscalateView.swift */; };
-		F49ED6CC4148E7901BBDB6BD /* AdminPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98F98FB17D1CC2CFE6FC80 /* AdminPanelView.swift */; };
-		6FEF0FF316A39C525AE3FCF6 /* TicketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171478F849E998BD9EA30574 /* TicketDetailView.swift */; };
-		52A10E1CE86BA55DEC5DC6B7 /* DuckLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F4C91C1712F92C735311C6 /* DuckLogo.swift */; };
-		3756939B48D40D4153BD55AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE5D19C151A2783034ACF4A7 /* Assets.xcassets */; };
+		BDE9A8B1BCB175888B315466 /* AskTheDuckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CB5384CB1EF4FA8C7B662 /* AskTheDuckApp.swift */; };
+		9AA5287E58AC52BC34AB55CE /* PoolDuckTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD14D7E57A8667DE4348322 /* PoolDuckTheme.swift */; };
+		82B92A63D24D0DB9FADFBF7B /* ProblemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0010EBB9FD1F5FEFB215864 /* ProblemType.swift */; };
+		490E7186A5DF183DFD78D74E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602DC001BB408516B79C087A /* Message.swift */; };
+		DB150FC806083D1EB8A7A4E5 /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6103BC42087A185734E9CEF2 /* CustomerInfo.swift */; };
+		7FF12396EC1B34E9BDFCF34D /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500B3B32D8A3A1758DC7D14B /* Ticket.swift */; };
+		E94398F0FE56FCD93910F45D /* ServiceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33812CE83E31F924012A14F /* ServiceRecord.swift */; };
+		DE0AB4E942D2FD37E64787A7 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1A1B3543BEB56EAA1DDFEA /* Quote.swift */; };
+		EC1D2B9FACAEE7F5BDF9F60E /* ClaudeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5399F8B4B7DCB9E1B32A17F2 /* ClaudeService.swift */; };
+		9243B885A758E463264C6621 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B8FF984B50296EC7925176 /* SpeechService.swift */; };
+		9B40A686344BE66C22DE78D7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849545CDD9F581366D3CC390 /* AuthService.swift */; };
+		63E87FA393F8C7029E07DBFB /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23122E5ED4DAA7ED216F4288 /* MediaService.swift */; };
+		147F6D66F3F154D8F337DFA3 /* TicketStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DAEEEBC79E508985068452 /* TicketStore.swift */; };
+		8BEF3FCB5238B230D4A4529C /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C3DEBC0135EDB426F107F /* HistoryStore.swift */; };
+		556B557522F02D5DCD18EE54 /* QuoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368DC29376E2E3112FEF442E /* QuoteStore.swift */; };
+		702CCC1AEE5FF2704F6DFA2D /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE636089BDA0C2DBE08A75C /* QuoteService.swift */; };
+		0D843D94745367C8CE2C9C70 /* PoolDuckPlaybook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C649FE005726A8A84BE7D73 /* PoolDuckPlaybook.swift */; };
+		A0798AD43ED87B9187722333 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B48F2748DB8707C8606737 /* AuthViewModel.swift */; };
+		EC5F1A332C39D39ED1515DD7 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFBD06951C67C855C5EEE42 /* ChatViewModel.swift */; };
+		91769711E690EE0585AFEB64 /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED89695A86901C303616BD0 /* AdminViewModel.swift */; };
+		61E228D735EC1EA7E527B9C7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CEDC5E4ADAB25FA903CB5 /* LoginView.swift */; };
+		BCF4D9E012F581DE84FCDC5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08145FE047972C830C323B9 /* HomeView.swift */; };
+		19D144A7225EF3F8CC73F286 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019278BB2EC643E2398E0E8 /* ChatView.swift */; };
+		0CBF1246DD10286747B98CBE /* MediaPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3380B516ACB2538760F13543 /* MediaPickers.swift */; };
+		D95358169A99ABAEDF2F159F /* CustomerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB18B73EDB23267CCF8167 /* CustomerInfoView.swift */; };
+		9F31AF03F3809FFA69F434EB /* EscalateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1632C5FAF090A348442B4 /* EscalateView.swift */; };
+		1C5BDF48A5831BE9CBD96673 /* AdminPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445A4D4110A71C1BD117F0F /* AdminPanelView.swift */; };
+		68AC7E9505F1EBC4047CCC16 /* TicketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95967056E59848421241861B /* TicketDetailView.swift */; };
+		1712FF5B20CC60DA59060093 /* DuckLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377C24531CD6C91CD664000F /* DuckLogo.swift */; };
+		CCE1D7750666924722178A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C16E3AB091410C0C5BFCFC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		686D30C6237F1E5FB4F1794F /* Frameworks */ = {
+		54B57931AA46DE0F828F8C38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,127 +50,139 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8F26E9E8385C36DFAE3BD0EA /* AskTheDuckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskTheDuckApp.swift; sourceTree = "<group>"; };
-		465E2BB31CFCB3EDA0DF92A2 /* PoolDuckTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolDuckTheme.swift; sourceTree = "<group>"; };
-		32380C1137A2701F3E0E3B67 /* ProblemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemType.swift; sourceTree = "<group>"; };
-		DE7544278A8AFFDD70EA0B45 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		E70E80400227692E6DC7EC46 /* CustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
-		0CAC090ECCC0B4EE85F7C412 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
-		1BD96814FD25CDDE9C90E814 /* ClaudeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeService.swift; sourceTree = "<group>"; };
-		2705BF3B65510B3E234FD525 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
-		77B96BBDF7CA61B0FFEC8F5C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		0CDBFB955A6AC9E18CD80534 /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
-		2F7DF6F0474D1273543C456A /* TicketStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStore.swift; sourceTree = "<group>"; };
-		9AC3B7194800365B8C4B44FB /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		28C55913A835231D88924923 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		29F7A74C7B076D15C1C5D761 /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
-		C6B6AF955F5EE3A648C20DE8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		3FD74EBD1DC9DD3188E02D4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		845D1993632C51B79DE37B5F /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		70D2EAB9CBED71FBF15FA1BD /* MediaPickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickers.swift; sourceTree = "<group>"; };
-		D82A0DDA91A075A10B323CE5 /* CustomerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfoView.swift; sourceTree = "<group>"; };
-		105C35E578017B3691B3F111 /* EscalateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscalateView.swift; sourceTree = "<group>"; };
-		2C98F98FB17D1CC2CFE6FC80 /* AdminPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelView.swift; sourceTree = "<group>"; };
-		171478F849E998BD9EA30574 /* TicketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailView.swift; sourceTree = "<group>"; };
-		98F4C91C1712F92C735311C6 /* DuckLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckLogo.swift; sourceTree = "<group>"; };
-		DE5D19C151A2783034ACF4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8BC24DEBC3CD2624006C8CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F02E5629F3B0A3CA1869E5AF /* AskTheDuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AskTheDuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50CB5384CB1EF4FA8C7B662 /* AskTheDuckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskTheDuckApp.swift; sourceTree = "<group>"; };
+		9BD14D7E57A8667DE4348322 /* PoolDuckTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolDuckTheme.swift; sourceTree = "<group>"; };
+		D0010EBB9FD1F5FEFB215864 /* ProblemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemType.swift; sourceTree = "<group>"; };
+		602DC001BB408516B79C087A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		6103BC42087A185734E9CEF2 /* CustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
+		500B3B32D8A3A1758DC7D14B /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		F33812CE83E31F924012A14F /* ServiceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRecord.swift; sourceTree = "<group>"; };
+		AD1A1B3543BEB56EAA1DDFEA /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		5399F8B4B7DCB9E1B32A17F2 /* ClaudeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeService.swift; sourceTree = "<group>"; };
+		90B8FF984B50296EC7925176 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
+		849545CDD9F581366D3CC390 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		23122E5ED4DAA7ED216F4288 /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
+		B5DAEEEBC79E508985068452 /* TicketStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStore.swift; sourceTree = "<group>"; };
+		358C3DEBC0135EDB426F107F /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
+		368DC29376E2E3112FEF442E /* QuoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStore.swift; sourceTree = "<group>"; };
+		BFE636089BDA0C2DBE08A75C /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
+		5C649FE005726A8A84BE7D73 /* PoolDuckPlaybook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolDuckPlaybook.swift; sourceTree = "<group>"; };
+		38B48F2748DB8707C8606737 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		FEFBD06951C67C855C5EEE42 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		6ED89695A86901C303616BD0 /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
+		6F1CEDC5E4ADAB25FA903CB5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E08145FE047972C830C323B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7019278BB2EC643E2398E0E8 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		3380B516ACB2538760F13543 /* MediaPickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickers.swift; sourceTree = "<group>"; };
+		DDAB18B73EDB23267CCF8167 /* CustomerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfoView.swift; sourceTree = "<group>"; };
+		D2F1632C5FAF090A348442B4 /* EscalateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscalateView.swift; sourceTree = "<group>"; };
+		7445A4D4110A71C1BD117F0F /* AdminPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelView.swift; sourceTree = "<group>"; };
+		95967056E59848421241861B /* TicketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailView.swift; sourceTree = "<group>"; };
+		377C24531CD6C91CD664000F /* DuckLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckLogo.swift; sourceTree = "<group>"; };
+		D8C16E3AB091410C0C5BFCFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42827AF5183196EFC95E84B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C0879AA7DC656C879F07144 /* AskTheDuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AskTheDuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		87BC9FB35719A1EB337DAE3B = {
+		70E633F470A7D3FE77882292 = {
 			isa = PBXGroup;
 			children = (
-				A42D3D98442FA71BF7164540 /* AskTheDuck */,
-				FF15C285515478581F2C206E /* Products */,
+				D6F4B262822FD7E3D827A643 /* AskTheDuck */,
+				13D92CB572A01AE6D86257B3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A42D3D98442FA71BF7164540 /* AskTheDuck */ = {
+		D6F4B262822FD7E3D827A643 /* AskTheDuck */ = {
 			isa = PBXGroup;
 			children = (
-				8F26E9E8385C36DFAE3BD0EA /* AskTheDuckApp.swift */,
-				EF9FE162FD481568C39ABB50 /* Theme */,
-				70A2914D78615737F57A5DB7 /* Models */,
-				65720533C7BA457CDEE1D65C /* Services */,
-				9428E872172433E1FADB4AF3 /* ViewModels */,
-				82593A4572A02FE19E5A803A /* Views */,
-				DE5D19C151A2783034ACF4A7 /* Assets.xcassets */,
-				8BC24DEBC3CD2624006C8CAE /* Info.plist */,
+				A50CB5384CB1EF4FA8C7B662 /* AskTheDuckApp.swift */,
+				670FB1A1A48D6B67309A9B1C /* Theme */,
+				2A006AA96BD682E126D9891D /* Models */,
+				1F8D886CC84671077080F94E /* Services */,
+				DBB4CC218C4903ED296E83EE /* ViewModels */,
+				71CE0A2F376C424EF68C7389 /* Views */,
+				D8C16E3AB091410C0C5BFCFC /* Assets.xcassets */,
+				42827AF5183196EFC95E84B3 /* Info.plist */,
 			);
 			path = AskTheDuck;
 			sourceTree = "<group>";
 		};
-		EF9FE162FD481568C39ABB50 /* Theme */ = {
+		670FB1A1A48D6B67309A9B1C /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				465E2BB31CFCB3EDA0DF92A2 /* PoolDuckTheme.swift */,
+				9BD14D7E57A8667DE4348322 /* PoolDuckTheme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		70A2914D78615737F57A5DB7 /* Models */ = {
+		2A006AA96BD682E126D9891D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				32380C1137A2701F3E0E3B67 /* ProblemType.swift */,
-				DE7544278A8AFFDD70EA0B45 /* Message.swift */,
-				E70E80400227692E6DC7EC46 /* CustomerInfo.swift */,
-				0CAC090ECCC0B4EE85F7C412 /* Ticket.swift */,
+				D0010EBB9FD1F5FEFB215864 /* ProblemType.swift */,
+				602DC001BB408516B79C087A /* Message.swift */,
+				6103BC42087A185734E9CEF2 /* CustomerInfo.swift */,
+				500B3B32D8A3A1758DC7D14B /* Ticket.swift */,
+				F33812CE83E31F924012A14F /* ServiceRecord.swift */,
+				AD1A1B3543BEB56EAA1DDFEA /* Quote.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		65720533C7BA457CDEE1D65C /* Services */ = {
+		1F8D886CC84671077080F94E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1BD96814FD25CDDE9C90E814 /* ClaudeService.swift */,
-				2705BF3B65510B3E234FD525 /* SpeechService.swift */,
-				77B96BBDF7CA61B0FFEC8F5C /* AuthService.swift */,
-				0CDBFB955A6AC9E18CD80534 /* MediaService.swift */,
-				2F7DF6F0474D1273543C456A /* TicketStore.swift */,
+				5399F8B4B7DCB9E1B32A17F2 /* ClaudeService.swift */,
+				90B8FF984B50296EC7925176 /* SpeechService.swift */,
+				849545CDD9F581366D3CC390 /* AuthService.swift */,
+				23122E5ED4DAA7ED216F4288 /* MediaService.swift */,
+				B5DAEEEBC79E508985068452 /* TicketStore.swift */,
+				358C3DEBC0135EDB426F107F /* HistoryStore.swift */,
+				368DC29376E2E3112FEF442E /* QuoteStore.swift */,
+				BFE636089BDA0C2DBE08A75C /* QuoteService.swift */,
+				5C649FE005726A8A84BE7D73 /* PoolDuckPlaybook.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		9428E872172433E1FADB4AF3 /* ViewModels */ = {
+		DBB4CC218C4903ED296E83EE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9AC3B7194800365B8C4B44FB /* AuthViewModel.swift */,
-				28C55913A835231D88924923 /* ChatViewModel.swift */,
-				29F7A74C7B076D15C1C5D761 /* AdminViewModel.swift */,
+				38B48F2748DB8707C8606737 /* AuthViewModel.swift */,
+				FEFBD06951C67C855C5EEE42 /* ChatViewModel.swift */,
+				6ED89695A86901C303616BD0 /* AdminViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		82593A4572A02FE19E5A803A /* Views */ = {
+		71CE0A2F376C424EF68C7389 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C6B6AF955F5EE3A648C20DE8 /* LoginView.swift */,
-				3FD74EBD1DC9DD3188E02D4E /* HomeView.swift */,
-				845D1993632C51B79DE37B5F /* ChatView.swift */,
-				70D2EAB9CBED71FBF15FA1BD /* MediaPickers.swift */,
-				D82A0DDA91A075A10B323CE5 /* CustomerInfoView.swift */,
-				105C35E578017B3691B3F111 /* EscalateView.swift */,
-				2C98F98FB17D1CC2CFE6FC80 /* AdminPanelView.swift */,
-				171478F849E998BD9EA30574 /* TicketDetailView.swift */,
-				94552538141E5C27BEFF6573 /* Components */,
+				6F1CEDC5E4ADAB25FA903CB5 /* LoginView.swift */,
+				E08145FE047972C830C323B9 /* HomeView.swift */,
+				7019278BB2EC643E2398E0E8 /* ChatView.swift */,
+				3380B516ACB2538760F13543 /* MediaPickers.swift */,
+				DDAB18B73EDB23267CCF8167 /* CustomerInfoView.swift */,
+				D2F1632C5FAF090A348442B4 /* EscalateView.swift */,
+				7445A4D4110A71C1BD117F0F /* AdminPanelView.swift */,
+				95967056E59848421241861B /* TicketDetailView.swift */,
+				0828C225E1B5B2E7851A6E9F /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		94552538141E5C27BEFF6573 /* Components */ = {
+		0828C225E1B5B2E7851A6E9F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				98F4C91C1712F92C735311C6 /* DuckLogo.swift */,
+				377C24531CD6C91CD664000F /* DuckLogo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		FF15C285515478581F2C206E /* Products */ = {
+		13D92CB572A01AE6D86257B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F02E5629F3B0A3CA1869E5AF /* AskTheDuck.app */,
+				5C0879AA7DC656C879F07144 /* AskTheDuck.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,13 +190,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		757BDB335DCEE2357BB9DF8A /* AskTheDuck */ = {
+		396604BD866FC1851C053164 /* AskTheDuck */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0CAA8816122C069B19EB2B53 /* Build configuration list for PBXNativeTarget "AskTheDuck" */;
+			buildConfigurationList = 194C2BF997C0A3277EF7A50B /* Build configuration list for PBXNativeTarget "AskTheDuck" */;
 			buildPhases = (
-				EFC29BE7A6C3EB83240D1613 /* Sources */,
-				686D30C6237F1E5FB4F1794F /* Frameworks */,
-				314E5780B02A72653A22CB00 /* Resources */,
+				2F2E6679FCA1C1CF97498B16 /* Sources */,
+				54B57931AA46DE0F828F8C38 /* Frameworks */,
+				36DFFA86D39BAA0F9EA0C124 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -186,25 +204,25 @@
 			);
 			name = AskTheDuck;
 			productName = AskTheDuck;
-			productReference = F02E5629F3B0A3CA1869E5AF /* AskTheDuck.app */;
+			productReference = 5C0879AA7DC656C879F07144 /* AskTheDuck.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		029FD0B32C013FC5C18504BC /* Project object */ = {
+		4B62988C164DBA33776BE59F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					757BDB335DCEE2357BB9DF8A = {
+					396604BD866FC1851C053164 = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
-			buildConfigurationList = 1FD2D65AACD41DE1EA615C2C /* Build configuration list for PBXProject "AskTheDuck" */;
+			buildConfigurationList = 72B979429AF96A312441DD68 /* Build configuration list for PBXProject "AskTheDuck" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -212,62 +230,68 @@
 				en,
 				Base,
 			);
-			mainGroup = 87BC9FB35719A1EB337DAE3B;
-			productRefGroup = FF15C285515478581F2C206E /* Products */;
+			mainGroup = 70E633F470A7D3FE77882292;
+			productRefGroup = 13D92CB572A01AE6D86257B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				757BDB335DCEE2357BB9DF8A /* AskTheDuck */,
+				396604BD866FC1851C053164 /* AskTheDuck */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		314E5780B02A72653A22CB00 /* Resources */ = {
+		36DFFA86D39BAA0F9EA0C124 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3756939B48D40D4153BD55AA /* Assets.xcassets in Resources */,
+				CCE1D7750666924722178A5A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EFC29BE7A6C3EB83240D1613 /* Sources */ = {
+		2F2E6679FCA1C1CF97498B16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59D3C77820A322F721520814 /* AskTheDuckApp.swift in Sources */,
-				5839F4B615BD0DC46C7E895B /* PoolDuckTheme.swift in Sources */,
-				AFB181850FFC861FE9F23552 /* ProblemType.swift in Sources */,
-				0B5915944A00865A3FCB13B4 /* Message.swift in Sources */,
-				C6EC3E0624C4D37C839812F3 /* CustomerInfo.swift in Sources */,
-				979620C527ED3696BA0EFF45 /* Ticket.swift in Sources */,
-				38D42484CF476EC1A7B6BE2D /* ClaudeService.swift in Sources */,
-				42B12FBDB19DD3C6E3ABD7A4 /* SpeechService.swift in Sources */,
-				0CEAD260A3C4677E64D41009 /* AuthService.swift in Sources */,
-				57EC58804C53D1762113E9C9 /* MediaService.swift in Sources */,
-				8C4356AFED0D871BF2F45A1A /* TicketStore.swift in Sources */,
-				49793D74BD4C39D8879FBA5A /* AuthViewModel.swift in Sources */,
-				09EB9E4D01FE612D3CA5CC50 /* ChatViewModel.swift in Sources */,
-				A6514E5802D1276DB83E8D4F /* AdminViewModel.swift in Sources */,
-				CFB7565F7DCFB9B826B481E0 /* LoginView.swift in Sources */,
-				16DB2E9A20ED7BBC9B7592AB /* HomeView.swift in Sources */,
-				C0BDDBADEAD08417F4D2DE02 /* ChatView.swift in Sources */,
-				53EEA30201BCA3F33394D58F /* MediaPickers.swift in Sources */,
-				03C3FF9B25FA384DB7076BB6 /* CustomerInfoView.swift in Sources */,
-				7CDB428FEE034C3AEBA266B7 /* EscalateView.swift in Sources */,
-				F49ED6CC4148E7901BBDB6BD /* AdminPanelView.swift in Sources */,
-				6FEF0FF316A39C525AE3FCF6 /* TicketDetailView.swift in Sources */,
-				52A10E1CE86BA55DEC5DC6B7 /* DuckLogo.swift in Sources */,
+				BDE9A8B1BCB175888B315466 /* AskTheDuckApp.swift in Sources */,
+				9AA5287E58AC52BC34AB55CE /* PoolDuckTheme.swift in Sources */,
+				82B92A63D24D0DB9FADFBF7B /* ProblemType.swift in Sources */,
+				490E7186A5DF183DFD78D74E /* Message.swift in Sources */,
+				DB150FC806083D1EB8A7A4E5 /* CustomerInfo.swift in Sources */,
+				7FF12396EC1B34E9BDFCF34D /* Ticket.swift in Sources */,
+				E94398F0FE56FCD93910F45D /* ServiceRecord.swift in Sources */,
+				DE0AB4E942D2FD37E64787A7 /* Quote.swift in Sources */,
+				EC1D2B9FACAEE7F5BDF9F60E /* ClaudeService.swift in Sources */,
+				9243B885A758E463264C6621 /* SpeechService.swift in Sources */,
+				9B40A686344BE66C22DE78D7 /* AuthService.swift in Sources */,
+				63E87FA393F8C7029E07DBFB /* MediaService.swift in Sources */,
+				147F6D66F3F154D8F337DFA3 /* TicketStore.swift in Sources */,
+				8BEF3FCB5238B230D4A4529C /* HistoryStore.swift in Sources */,
+				556B557522F02D5DCD18EE54 /* QuoteStore.swift in Sources */,
+				702CCC1AEE5FF2704F6DFA2D /* QuoteService.swift in Sources */,
+				0D843D94745367C8CE2C9C70 /* PoolDuckPlaybook.swift in Sources */,
+				A0798AD43ED87B9187722333 /* AuthViewModel.swift in Sources */,
+				EC5F1A332C39D39ED1515DD7 /* ChatViewModel.swift in Sources */,
+				91769711E690EE0585AFEB64 /* AdminViewModel.swift in Sources */,
+				61E228D735EC1EA7E527B9C7 /* LoginView.swift in Sources */,
+				BCF4D9E012F581DE84FCDC5A /* HomeView.swift in Sources */,
+				19D144A7225EF3F8CC73F286 /* ChatView.swift in Sources */,
+				0CBF1246DD10286747B98CBE /* MediaPickers.swift in Sources */,
+				D95358169A99ABAEDF2F159F /* CustomerInfoView.swift in Sources */,
+				9F31AF03F3809FFA69F434EB /* EscalateView.swift in Sources */,
+				1C5BDF48A5831BE9CBD96673 /* AdminPanelView.swift in Sources */,
+				68AC7E9505F1EBC4047CCC16 /* TicketDetailView.swift in Sources */,
+				1712FF5B20CC60DA59060093 /* DuckLogo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		86D9FAC04D36AC37CF3970A9 /* Debug */ = {
+		44F318E3E03490FD755F5B26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -295,7 +319,7 @@
 			};
 			name = Debug;
 		};
-		4B770C06515EC21499A32557 /* Release */ = {
+		EC5819A923CD7DE27D989D54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -323,7 +347,7 @@
 			};
 			name = Release;
 		};
-		938311A4875403F1198765FB /* Debug */ = {
+		7B1CB4343C4B92FA990C3EE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -350,7 +374,7 @@
 			};
 			name = Debug;
 		};
-		BD07276C7E729C4ECB952AEA /* Release */ = {
+		BEF10AB17616E67CC1CD3077 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -372,25 +396,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0CAA8816122C069B19EB2B53 /* Build configuration list for PBXNativeTarget "AskTheDuck" */ = {
+		194C2BF997C0A3277EF7A50B /* Build configuration list for PBXNativeTarget "AskTheDuck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				86D9FAC04D36AC37CF3970A9 /* Debug */,
-				4B770C06515EC21499A32557 /* Release */,
+				44F318E3E03490FD755F5B26 /* Debug */,
+				EC5819A923CD7DE27D989D54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1FD2D65AACD41DE1EA615C2C /* Build configuration list for PBXProject "AskTheDuck" */ = {
+		72B979429AF96A312441DD68 /* Build configuration list for PBXProject "AskTheDuck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				938311A4875403F1198765FB /* Debug */,
-				BD07276C7E729C4ECB952AEA /* Release */,
+				7B1CB4343C4B92FA990C3EE5 /* Debug */,
+				BEF10AB17616E67CC1CD3077 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 029FD0B32C013FC5C18504BC /* Project object */;
+	rootObject = 4B62988C164DBA33776BE59F /* Project object */;
 }

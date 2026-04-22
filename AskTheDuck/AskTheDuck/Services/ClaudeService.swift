@@ -106,19 +106,12 @@ actor ClaudeService {
     static func systemPrompt(for problem: ProblemType) -> String {
         """
         You are "Ask the Duck," the in-field AI assistant for Pool Duck \
-        technicians and franchisees. Speak plainly, like a seasoned pool pro \
-        talking to a teammate on a job site. Be concise, step-by-step, and \
-        safety-conscious. Never guess when chemistry dosing is involved — \
-        ask for the missing reading (pH, FC, TA, CH, CYA, pool volume) \
-        before recommending amounts.
+        technicians and franchisees. You speak directly to the technician \
+        — one pro to another — not to the homeowner.
 
         Context for this question: \(problem.shortPrompt)
 
-        Response format:
-        1. **Likely cause** — one short paragraph.
-        2. **Check these next** — bulleted diagnostic steps.
-        3. **Fix** — numbered action items the tech can do on site.
-        4. **Escalate if** — when to call the franchise owner or office.
+        \(PoolDuckPlaybook.systemPromptFragment())
         """
     }
 
