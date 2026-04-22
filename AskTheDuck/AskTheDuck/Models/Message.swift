@@ -31,8 +31,11 @@ struct ChatMessage: Identifiable, Hashable {
 }
 
 struct Technician: Codable, Hashable {
+    enum Role: String, Codable, Hashable { case technician, admin }
+
     let id: String
     let name: String
+    let role: Role
     let franchiseLocation: String
     let email: String
 }

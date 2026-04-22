@@ -7,26 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77C515977D37BCE9AF86B0FA /* AskTheDuckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6E4F2536451D14BCA200EE /* AskTheDuckApp.swift */; };
-		54A7DD5DF2A9819007507830 /* PoolDuckTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174E943DDC55968A33D3F3EF /* PoolDuckTheme.swift */; };
-		E5E782683E1695F48FFB0082 /* ProblemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022C7B40BEC5E33792A02A3 /* ProblemType.swift */; };
-		3F8414F653143170C8610B00 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1002B97258E3038EBA49D77C /* Message.swift */; };
-		F6759335C1BD1B05D289FD84 /* ClaudeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE2280D09193716191E350 /* ClaudeService.swift */; };
-		6638BBDFF3F45C6275AA16AA /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1268A1FBD387BB873958960B /* SpeechService.swift */; };
-		964F90170E0B09853C8A89A9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B43B7FCA6A755264A1A8EC4 /* AuthService.swift */; };
-		FFFE7F564A3B43EEED2EFA7B /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA030B43715C1EFD736F1F /* MediaService.swift */; };
-		F1143577FA26E35B7F6E0A2D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602F017AC37C25F0F4695B4C /* AuthViewModel.swift */; };
-		18A67E8EE304AAABC5199D6C /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A216301D9F2759B65BD877 /* ChatViewModel.swift */; };
-		270FDC441A0E4A5B55649AB2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE5FDEBDBC74011BF22AE5A /* LoginView.swift */; };
-		50C4390EC52F9EDE9CCDA847 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1747F401C71C274B039983 /* HomeView.swift */; };
-		10A23BAF396A79C3AC304D67 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225BE2ABABDFAF3E68C2EE9 /* ChatView.swift */; };
-		789F04AAB0A9B5122FF926EE /* MediaPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7896A567EB03E0C69E89C5 /* MediaPickers.swift */; };
-		839B8920717DED93BA5C3414 /* DuckLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C265F4A1914E50E876CF1491 /* DuckLogo.swift */; };
-		0BEE56199A35155503EB40F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20EC28D6D292F53DED5417F2 /* Assets.xcassets */; };
+		59D3C77820A322F721520814 /* AskTheDuckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26E9E8385C36DFAE3BD0EA /* AskTheDuckApp.swift */; };
+		5839F4B615BD0DC46C7E895B /* PoolDuckTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2BB31CFCB3EDA0DF92A2 /* PoolDuckTheme.swift */; };
+		AFB181850FFC861FE9F23552 /* ProblemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32380C1137A2701F3E0E3B67 /* ProblemType.swift */; };
+		0B5915944A00865A3FCB13B4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7544278A8AFFDD70EA0B45 /* Message.swift */; };
+		C6EC3E0624C4D37C839812F3 /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70E80400227692E6DC7EC46 /* CustomerInfo.swift */; };
+		979620C527ED3696BA0EFF45 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAC090ECCC0B4EE85F7C412 /* Ticket.swift */; };
+		38D42484CF476EC1A7B6BE2D /* ClaudeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD96814FD25CDDE9C90E814 /* ClaudeService.swift */; };
+		42B12FBDB19DD3C6E3ABD7A4 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2705BF3B65510B3E234FD525 /* SpeechService.swift */; };
+		0CEAD260A3C4677E64D41009 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B96BBDF7CA61B0FFEC8F5C /* AuthService.swift */; };
+		57EC58804C53D1762113E9C9 /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDBFB955A6AC9E18CD80534 /* MediaService.swift */; };
+		8C4356AFED0D871BF2F45A1A /* TicketStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7DF6F0474D1273543C456A /* TicketStore.swift */; };
+		49793D74BD4C39D8879FBA5A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3B7194800365B8C4B44FB /* AuthViewModel.swift */; };
+		09EB9E4D01FE612D3CA5CC50 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C55913A835231D88924923 /* ChatViewModel.swift */; };
+		A6514E5802D1276DB83E8D4F /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7A74C7B076D15C1C5D761 /* AdminViewModel.swift */; };
+		CFB7565F7DCFB9B826B481E0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B6AF955F5EE3A648C20DE8 /* LoginView.swift */; };
+		16DB2E9A20ED7BBC9B7592AB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD74EBD1DC9DD3188E02D4E /* HomeView.swift */; };
+		C0BDDBADEAD08417F4D2DE02 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D1993632C51B79DE37B5F /* ChatView.swift */; };
+		53EEA30201BCA3F33394D58F /* MediaPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2EAB9CBED71FBF15FA1BD /* MediaPickers.swift */; };
+		03C3FF9B25FA384DB7076BB6 /* CustomerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A0DDA91A075A10B323CE5 /* CustomerInfoView.swift */; };
+		7CDB428FEE034C3AEBA266B7 /* EscalateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105C35E578017B3691B3F111 /* EscalateView.swift */; };
+		F49ED6CC4148E7901BBDB6BD /* AdminPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C98F98FB17D1CC2CFE6FC80 /* AdminPanelView.swift */; };
+		6FEF0FF316A39C525AE3FCF6 /* TicketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171478F849E998BD9EA30574 /* TicketDetailView.swift */; };
+		52A10E1CE86BA55DEC5DC6B7 /* DuckLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F4C91C1712F92C735311C6 /* DuckLogo.swift */; };
+		3756939B48D40D4153BD55AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE5D19C151A2783034ACF4A7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FBDE12B1BF7E9012AC56D790 /* Frameworks */ = {
+		686D30C6237F1E5FB4F1794F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,111 +44,127 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA6E4F2536451D14BCA200EE /* AskTheDuckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskTheDuckApp.swift; sourceTree = "<group>"; };
-		174E943DDC55968A33D3F3EF /* PoolDuckTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolDuckTheme.swift; sourceTree = "<group>"; };
-		F022C7B40BEC5E33792A02A3 /* ProblemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemType.swift; sourceTree = "<group>"; };
-		1002B97258E3038EBA49D77C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		D0FE2280D09193716191E350 /* ClaudeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeService.swift; sourceTree = "<group>"; };
-		1268A1FBD387BB873958960B /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
-		7B43B7FCA6A755264A1A8EC4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		2CDA030B43715C1EFD736F1F /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
-		602F017AC37C25F0F4695B4C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		39A216301D9F2759B65BD877 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		BBE5FDEBDBC74011BF22AE5A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		6F1747F401C71C274B039983 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		D225BE2ABABDFAF3E68C2EE9 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		DC7896A567EB03E0C69E89C5 /* MediaPickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickers.swift; sourceTree = "<group>"; };
-		C265F4A1914E50E876CF1491 /* DuckLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckLogo.swift; sourceTree = "<group>"; };
-		20EC28D6D292F53DED5417F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		93842C75E9EA9A1032A74B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D676E2EF497F8BF289F09F8 /* AskTheDuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AskTheDuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F26E9E8385C36DFAE3BD0EA /* AskTheDuckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskTheDuckApp.swift; sourceTree = "<group>"; };
+		465E2BB31CFCB3EDA0DF92A2 /* PoolDuckTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolDuckTheme.swift; sourceTree = "<group>"; };
+		32380C1137A2701F3E0E3B67 /* ProblemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemType.swift; sourceTree = "<group>"; };
+		DE7544278A8AFFDD70EA0B45 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E70E80400227692E6DC7EC46 /* CustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
+		0CAC090ECCC0B4EE85F7C412 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		1BD96814FD25CDDE9C90E814 /* ClaudeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeService.swift; sourceTree = "<group>"; };
+		2705BF3B65510B3E234FD525 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
+		77B96BBDF7CA61B0FFEC8F5C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		0CDBFB955A6AC9E18CD80534 /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
+		2F7DF6F0474D1273543C456A /* TicketStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStore.swift; sourceTree = "<group>"; };
+		9AC3B7194800365B8C4B44FB /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		28C55913A835231D88924923 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		29F7A74C7B076D15C1C5D761 /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
+		C6B6AF955F5EE3A648C20DE8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3FD74EBD1DC9DD3188E02D4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		845D1993632C51B79DE37B5F /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		70D2EAB9CBED71FBF15FA1BD /* MediaPickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickers.swift; sourceTree = "<group>"; };
+		D82A0DDA91A075A10B323CE5 /* CustomerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfoView.swift; sourceTree = "<group>"; };
+		105C35E578017B3691B3F111 /* EscalateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscalateView.swift; sourceTree = "<group>"; };
+		2C98F98FB17D1CC2CFE6FC80 /* AdminPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelView.swift; sourceTree = "<group>"; };
+		171478F849E998BD9EA30574 /* TicketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailView.swift; sourceTree = "<group>"; };
+		98F4C91C1712F92C735311C6 /* DuckLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckLogo.swift; sourceTree = "<group>"; };
+		DE5D19C151A2783034ACF4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BC24DEBC3CD2624006C8CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F02E5629F3B0A3CA1869E5AF /* AskTheDuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AskTheDuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		B0608B81A05547037950B223 = {
+		87BC9FB35719A1EB337DAE3B = {
 			isa = PBXGroup;
 			children = (
-				BB412490F9A8E421DA399F77 /* AskTheDuck */,
-				FF912079D2DB581DBD7980CE /* Products */,
+				A42D3D98442FA71BF7164540 /* AskTheDuck */,
+				FF15C285515478581F2C206E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BB412490F9A8E421DA399F77 /* AskTheDuck */ = {
+		A42D3D98442FA71BF7164540 /* AskTheDuck */ = {
 			isa = PBXGroup;
 			children = (
-				AA6E4F2536451D14BCA200EE /* AskTheDuckApp.swift */,
-				26AE00121FF025123FBFB655 /* Theme */,
-				B064CEC2BCD7B11FA584603D /* Models */,
-				BA2D81E2F210FA3EE7E629BF /* Services */,
-				3E9B00012D5748B8B562767F /* ViewModels */,
-				D0E13B889FB2EB05D09B1970 /* Views */,
-				20EC28D6D292F53DED5417F2 /* Assets.xcassets */,
-				93842C75E9EA9A1032A74B99 /* Info.plist */,
+				8F26E9E8385C36DFAE3BD0EA /* AskTheDuckApp.swift */,
+				EF9FE162FD481568C39ABB50 /* Theme */,
+				70A2914D78615737F57A5DB7 /* Models */,
+				65720533C7BA457CDEE1D65C /* Services */,
+				9428E872172433E1FADB4AF3 /* ViewModels */,
+				82593A4572A02FE19E5A803A /* Views */,
+				DE5D19C151A2783034ACF4A7 /* Assets.xcassets */,
+				8BC24DEBC3CD2624006C8CAE /* Info.plist */,
 			);
 			path = AskTheDuck;
 			sourceTree = "<group>";
 		};
-		26AE00121FF025123FBFB655 /* Theme */ = {
+		EF9FE162FD481568C39ABB50 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				174E943DDC55968A33D3F3EF /* PoolDuckTheme.swift */,
+				465E2BB31CFCB3EDA0DF92A2 /* PoolDuckTheme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
 		};
-		B064CEC2BCD7B11FA584603D /* Models */ = {
+		70A2914D78615737F57A5DB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F022C7B40BEC5E33792A02A3 /* ProblemType.swift */,
-				1002B97258E3038EBA49D77C /* Message.swift */,
+				32380C1137A2701F3E0E3B67 /* ProblemType.swift */,
+				DE7544278A8AFFDD70EA0B45 /* Message.swift */,
+				E70E80400227692E6DC7EC46 /* CustomerInfo.swift */,
+				0CAC090ECCC0B4EE85F7C412 /* Ticket.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		BA2D81E2F210FA3EE7E629BF /* Services */ = {
+		65720533C7BA457CDEE1D65C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D0FE2280D09193716191E350 /* ClaudeService.swift */,
-				1268A1FBD387BB873958960B /* SpeechService.swift */,
-				7B43B7FCA6A755264A1A8EC4 /* AuthService.swift */,
-				2CDA030B43715C1EFD736F1F /* MediaService.swift */,
+				1BD96814FD25CDDE9C90E814 /* ClaudeService.swift */,
+				2705BF3B65510B3E234FD525 /* SpeechService.swift */,
+				77B96BBDF7CA61B0FFEC8F5C /* AuthService.swift */,
+				0CDBFB955A6AC9E18CD80534 /* MediaService.swift */,
+				2F7DF6F0474D1273543C456A /* TicketStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		3E9B00012D5748B8B562767F /* ViewModels */ = {
+		9428E872172433E1FADB4AF3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				602F017AC37C25F0F4695B4C /* AuthViewModel.swift */,
-				39A216301D9F2759B65BD877 /* ChatViewModel.swift */,
+				9AC3B7194800365B8C4B44FB /* AuthViewModel.swift */,
+				28C55913A835231D88924923 /* ChatViewModel.swift */,
+				29F7A74C7B076D15C1C5D761 /* AdminViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		D0E13B889FB2EB05D09B1970 /* Views */ = {
+		82593A4572A02FE19E5A803A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BBE5FDEBDBC74011BF22AE5A /* LoginView.swift */,
-				6F1747F401C71C274B039983 /* HomeView.swift */,
-				D225BE2ABABDFAF3E68C2EE9 /* ChatView.swift */,
-				DC7896A567EB03E0C69E89C5 /* MediaPickers.swift */,
-				83AF8E9734DF40429B179052 /* Components */,
+				C6B6AF955F5EE3A648C20DE8 /* LoginView.swift */,
+				3FD74EBD1DC9DD3188E02D4E /* HomeView.swift */,
+				845D1993632C51B79DE37B5F /* ChatView.swift */,
+				70D2EAB9CBED71FBF15FA1BD /* MediaPickers.swift */,
+				D82A0DDA91A075A10B323CE5 /* CustomerInfoView.swift */,
+				105C35E578017B3691B3F111 /* EscalateView.swift */,
+				2C98F98FB17D1CC2CFE6FC80 /* AdminPanelView.swift */,
+				171478F849E998BD9EA30574 /* TicketDetailView.swift */,
+				94552538141E5C27BEFF6573 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		83AF8E9734DF40429B179052 /* Components */ = {
+		94552538141E5C27BEFF6573 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C265F4A1914E50E876CF1491 /* DuckLogo.swift */,
+				98F4C91C1712F92C735311C6 /* DuckLogo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		FF912079D2DB581DBD7980CE /* Products */ = {
+		FF15C285515478581F2C206E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D676E2EF497F8BF289F09F8 /* AskTheDuck.app */,
+				F02E5629F3B0A3CA1869E5AF /* AskTheDuck.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,13 +172,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E181819C7A427D11C6A4B939 /* AskTheDuck */ = {
+		757BDB335DCEE2357BB9DF8A /* AskTheDuck */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B76EB1BC2234FAB559F42F6 /* Build configuration list for PBXNativeTarget "AskTheDuck" */;
+			buildConfigurationList = 0CAA8816122C069B19EB2B53 /* Build configuration list for PBXNativeTarget "AskTheDuck" */;
 			buildPhases = (
-				E265950C03800A3AD93AAD8E /* Sources */,
-				FBDE12B1BF7E9012AC56D790 /* Frameworks */,
-				45E3A059BC20D0FDFBC6510C /* Resources */,
+				EFC29BE7A6C3EB83240D1613 /* Sources */,
+				686D30C6237F1E5FB4F1794F /* Frameworks */,
+				314E5780B02A72653A22CB00 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -162,25 +186,25 @@
 			);
 			name = AskTheDuck;
 			productName = AskTheDuck;
-			productReference = 5D676E2EF497F8BF289F09F8 /* AskTheDuck.app */;
+			productReference = F02E5629F3B0A3CA1869E5AF /* AskTheDuck.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		46D3F76B3C81450DC49B965C /* Project object */ = {
+		029FD0B32C013FC5C18504BC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					E181819C7A427D11C6A4B939 = {
+					757BDB335DCEE2357BB9DF8A = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
-			buildConfigurationList = 8E82DF8CCBCC26B7D7A238B7 /* Build configuration list for PBXProject "AskTheDuck" */;
+			buildConfigurationList = 1FD2D65AACD41DE1EA615C2C /* Build configuration list for PBXProject "AskTheDuck" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -188,54 +212,62 @@
 				en,
 				Base,
 			);
-			mainGroup = B0608B81A05547037950B223;
-			productRefGroup = FF912079D2DB581DBD7980CE /* Products */;
+			mainGroup = 87BC9FB35719A1EB337DAE3B;
+			productRefGroup = FF15C285515478581F2C206E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E181819C7A427D11C6A4B939 /* AskTheDuck */,
+				757BDB335DCEE2357BB9DF8A /* AskTheDuck */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		45E3A059BC20D0FDFBC6510C /* Resources */ = {
+		314E5780B02A72653A22CB00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BEE56199A35155503EB40F0 /* Assets.xcassets in Resources */,
+				3756939B48D40D4153BD55AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E265950C03800A3AD93AAD8E /* Sources */ = {
+		EFC29BE7A6C3EB83240D1613 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77C515977D37BCE9AF86B0FA /* AskTheDuckApp.swift in Sources */,
-				54A7DD5DF2A9819007507830 /* PoolDuckTheme.swift in Sources */,
-				E5E782683E1695F48FFB0082 /* ProblemType.swift in Sources */,
-				3F8414F653143170C8610B00 /* Message.swift in Sources */,
-				F6759335C1BD1B05D289FD84 /* ClaudeService.swift in Sources */,
-				6638BBDFF3F45C6275AA16AA /* SpeechService.swift in Sources */,
-				964F90170E0B09853C8A89A9 /* AuthService.swift in Sources */,
-				FFFE7F564A3B43EEED2EFA7B /* MediaService.swift in Sources */,
-				F1143577FA26E35B7F6E0A2D /* AuthViewModel.swift in Sources */,
-				18A67E8EE304AAABC5199D6C /* ChatViewModel.swift in Sources */,
-				270FDC441A0E4A5B55649AB2 /* LoginView.swift in Sources */,
-				50C4390EC52F9EDE9CCDA847 /* HomeView.swift in Sources */,
-				10A23BAF396A79C3AC304D67 /* ChatView.swift in Sources */,
-				789F04AAB0A9B5122FF926EE /* MediaPickers.swift in Sources */,
-				839B8920717DED93BA5C3414 /* DuckLogo.swift in Sources */,
+				59D3C77820A322F721520814 /* AskTheDuckApp.swift in Sources */,
+				5839F4B615BD0DC46C7E895B /* PoolDuckTheme.swift in Sources */,
+				AFB181850FFC861FE9F23552 /* ProblemType.swift in Sources */,
+				0B5915944A00865A3FCB13B4 /* Message.swift in Sources */,
+				C6EC3E0624C4D37C839812F3 /* CustomerInfo.swift in Sources */,
+				979620C527ED3696BA0EFF45 /* Ticket.swift in Sources */,
+				38D42484CF476EC1A7B6BE2D /* ClaudeService.swift in Sources */,
+				42B12FBDB19DD3C6E3ABD7A4 /* SpeechService.swift in Sources */,
+				0CEAD260A3C4677E64D41009 /* AuthService.swift in Sources */,
+				57EC58804C53D1762113E9C9 /* MediaService.swift in Sources */,
+				8C4356AFED0D871BF2F45A1A /* TicketStore.swift in Sources */,
+				49793D74BD4C39D8879FBA5A /* AuthViewModel.swift in Sources */,
+				09EB9E4D01FE612D3CA5CC50 /* ChatViewModel.swift in Sources */,
+				A6514E5802D1276DB83E8D4F /* AdminViewModel.swift in Sources */,
+				CFB7565F7DCFB9B826B481E0 /* LoginView.swift in Sources */,
+				16DB2E9A20ED7BBC9B7592AB /* HomeView.swift in Sources */,
+				C0BDDBADEAD08417F4D2DE02 /* ChatView.swift in Sources */,
+				53EEA30201BCA3F33394D58F /* MediaPickers.swift in Sources */,
+				03C3FF9B25FA384DB7076BB6 /* CustomerInfoView.swift in Sources */,
+				7CDB428FEE034C3AEBA266B7 /* EscalateView.swift in Sources */,
+				F49ED6CC4148E7901BBDB6BD /* AdminPanelView.swift in Sources */,
+				6FEF0FF316A39C525AE3FCF6 /* TicketDetailView.swift in Sources */,
+				52A10E1CE86BA55DEC5DC6B7 /* DuckLogo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A54087646CAA0341C9B4DB42 /* Debug */ = {
+		86D9FAC04D36AC37CF3970A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -246,9 +278,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AskTheDuck/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -266,7 +295,7 @@
 			};
 			name = Debug;
 		};
-		5559496896CFE3A0FD261D1F /* Release */ = {
+		4B770C06515EC21499A32557 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -277,9 +306,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AskTheDuck/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,7 +323,7 @@
 			};
 			name = Release;
 		};
-		768A47C9705D79B995E25F2F /* Debug */ = {
+		938311A4875403F1198765FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -324,7 +350,7 @@
 			};
 			name = Debug;
 		};
-		70040C5E7758C134366A2467 /* Release */ = {
+		BD07276C7E729C4ECB952AEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -346,25 +372,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B76EB1BC2234FAB559F42F6 /* Build configuration list for PBXNativeTarget "AskTheDuck" */ = {
+		0CAA8816122C069B19EB2B53 /* Build configuration list for PBXNativeTarget "AskTheDuck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A54087646CAA0341C9B4DB42 /* Debug */,
-				5559496896CFE3A0FD261D1F /* Release */,
+				86D9FAC04D36AC37CF3970A9 /* Debug */,
+				4B770C06515EC21499A32557 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E82DF8CCBCC26B7D7A238B7 /* Build configuration list for PBXProject "AskTheDuck" */ = {
+		1FD2D65AACD41DE1EA615C2C /* Build configuration list for PBXProject "AskTheDuck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				768A47C9705D79B995E25F2F /* Debug */,
-				70040C5E7758C134366A2467 /* Release */,
+				938311A4875403F1198765FB /* Debug */,
+				BD07276C7E729C4ECB952AEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 46D3F76B3C81450DC49B965C /* Project object */;
+	rootObject = 029FD0B32C013FC5C18504BC /* Project object */;
 }

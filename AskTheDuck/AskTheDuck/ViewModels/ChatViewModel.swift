@@ -11,15 +11,35 @@ final class ChatViewModel: ObservableObject {
     @Published var isSending = false
     @Published var errorMessage: String?
 
-    private let service: ClaudeService
+    /// Customer whose pool we're at. Required before the first message.
+    @Published var customer: CustomerInfo
 
-    init(problem: ProblemType, service: ClaudeService = ClaudeService()) {
+    /// Submission state for escalations.
+    @Published var isEscalating = false
+    @Published var lastEscalatedTicket: EscalationTicket?
+    @Published var escalationError: String?
+
+    let technician: Technician
+
+    private let service: ClaudeService
+    private let tickets: TicketStoring
+
+    init(
+        problem: ProblemType,
+        customer: CustomerInfo,
+        technician: Technician,
+        service: ClaudeService = ClaudeService(),
+        tickets: TicketStoring = LocalTicketStore.shared
+    ) {
         self.problem = problem
+        self.customer = customer
+        self.technician = technician
         self.service = service
+        self.tickets = tickets
         messages.append(
             ChatMessage(
                 role: .system,
-                text: "Ask the Duck is ready. Snap a photo, record a short video of the equipment or water, or just tell me what you're seeing."
+                text: "Ask the Duck is ready for \(customer.name.isEmpty ? "the customer" : customer.name). Snap a photo, record a short video of the equipment or water, or just tell me what you're seeing."
             )
         )
     }
@@ -71,6 +91,38 @@ final class ChatViewModel: ObservableObject {
                     text: "Couldn't reach Ask the Duck: \(error.localizedDescription)"
                 )
             )
+        }
+    }
+
+    /// Package the full session (customer info, chat transcript, all photos/
+    /// video stills) and send it to the back office for a scheduled repair.
+    func escalate(summary: String, troubleshootingTaken: String) async {
+        guard customer.isValid else {
+            escalationError = "Add the customer name, address, and phone before escalating."
+            return
+        }
+        escalationError = nil
+        isEscalating = true
+        defer { isEscalating = false }
+
+        do {
+            let ticket = try await tickets.submit(
+                technician: technician,
+                customer: customer,
+                problem: problem,
+                summary: summary,
+                troubleshootingTaken: troubleshootingTaken,
+                messages: messages
+            )
+            lastEscalatedTicket = ticket
+            messages.append(
+                ChatMessage(
+                    role: .system,
+                    text: "Escalated to the office. Ticket \(ticket.id.uuidString.prefix(8)) is now in the admin queue for scheduling."
+                )
+            )
+        } catch {
+            escalationError = error.localizedDescription
         }
     }
 }

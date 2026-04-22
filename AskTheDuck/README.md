@@ -9,11 +9,15 @@ speak or type what you're seeing, and get an AI-assisted answer from Claude
 
 - **Pool Duck branded UI** — teal/green gradient, duck mascot, and on-brand
   typography throughout.
-- **Technician sign-in** — pluggable `AuthBackend` (ships with a mock; swap
-  for Firebase / Cognito / the franchise portal).
+- **Technician & admin sign-in** — pluggable `AuthBackend` (ships with a
+  mock; swap for Firebase / Cognito / the franchise portal). Email
+  containing `admin` signs in as admin in the mock backend.
 - **Problem-type selection** — Equipment, Water Chemistry, Troubleshooting,
   Leak / Structure, Automation & Controls, Other. Each one steers Claude
   with a tailored system prompt.
+- **Customer capture** — every service call starts by capturing customer
+  name, address, and phone. That info travels with the ticket if it
+  escalates.
 - **Photo & video capture** — built-in camera for photos or up-to-60-second
   video, plus Photos library picker for existing media. Videos are sent as
   a representative still frame (Claude's vision API accepts images).
@@ -23,6 +27,14 @@ speak or type what you're seeing, and get an AI-assisted answer from Claude
   blocks. System prompt asks Claude to answer like "a seasoned pool pro
   talking to a teammate on a job site" with a consistent Likely-Cause /
   Check / Fix / Escalate structure.
+- **Escalate to office** — if Claude can't crack it, the tech taps
+  "Escalate." The summary, troubleshooting steps already tried, full chat
+  transcript, every photo/video still, and the customer's contact info
+  are bundled into a ticket and dropped in the admin queue.
+- **Admin panel** — admins see a list of tickets filterable by Pending /
+  Scheduled / Completed, with full detail (customer, photos, chat
+  transcript, tech notes) and one-tap scheduling for a repair with
+  optional notes back to the tech.
 
 ## Project layout
 
@@ -30,25 +42,33 @@ speak or type what you're seeing, and get an AI-assisted answer from Claude
 AskTheDuck/
 ├── AskTheDuck.xcodeproj
 └── AskTheDuck/
-    ├── AskTheDuckApp.swift          # @main entry point
+    ├── AskTheDuckApp.swift          # @main entry point + role routing
     ├── Info.plist
     ├── Assets.xcassets/             # Brand colors + DuckLogo image slot
     ├── Theme/PoolDuckTheme.swift
     ├── Models/
     │   ├── ProblemType.swift
-    │   └── Message.swift
+    │   ├── Message.swift            # Technician (with role), ChatMessage
+    │   ├── CustomerInfo.swift       # Name / address / phone
+    │   └── Ticket.swift             # EscalationTicket + TicketMessage
     ├── Services/
     │   ├── ClaudeService.swift      # Anthropic Messages API (vision)
     │   ├── SpeechService.swift      # SFSpeechRecognizer wrapper
     │   ├── MediaService.swift       # Image resize + video thumbnail
-    │   └── AuthService.swift        # Pluggable backend (mock included)
+    │   ├── AuthService.swift        # Pluggable backend (mock included)
+    │   └── TicketStore.swift        # Local JSON + attachment persistence
     ├── ViewModels/
     │   ├── AuthViewModel.swift
-    │   └── ChatViewModel.swift
+    │   ├── ChatViewModel.swift      # Chat + escalate flow
+    │   └── AdminViewModel.swift     # Ticket list + scheduling
     └── Views/
         ├── LoginView.swift
         ├── HomeView.swift
+        ├── CustomerInfoView.swift   # Captured before every chat
         ├── ChatView.swift
+        ├── EscalateView.swift       # "Send to office" sheet
+        ├── AdminPanelView.swift     # Ticket inbox
+        ├── TicketDetailView.swift   # Photos + transcript + scheduling
         ├── MediaPickers.swift
         └── Components/DuckLogo.swift
 ```
@@ -80,6 +100,41 @@ AskTheDuck/
    a vector fallback silhouette of the duck.
 5. Build & run on an iPhone (camera / mic / speech need a real device or
    a simulator with fake audio).
+
+## Flows
+
+### Technician flow
+1. Sign in (any email without `admin` in it → technician role).
+2. Tap a problem tile on the home grid.
+3. Enter the customer's name, service address, and phone.
+4. Chat with Claude — snap photos, record short video clips, speak or type
+   your question. Claude responds with a consistent Likely-cause / Check /
+   Fix / Escalate-if structure.
+5. If you can't resolve it on site, tap **Escalate** in the top-right.
+   Describe the issue in one paragraph, note what you already tried
+   (there's a "Paste Claude's guidance" shortcut), and submit. Everything
+   — customer info, photos, chat transcript, your notes — goes to the
+   admin queue.
+
+### Admin flow
+1. Sign in with an email that contains `admin` (e.g.
+   `dispatch@admin.poolduck.com`).
+2. The Admin Panel shows every escalated ticket, filterable by Pending /
+   Scheduled / Completed.
+3. Tap a ticket to see the customer info (with tap-to-call), the photos
+   and video stills, and the full chat transcript between the tech and
+   Claude.
+4. Hit **Schedule repair** to pick a date/time and add dispatch notes for
+   the technician, or **Mark done** once the repair is completed.
+
+### Storage
+
+Tickets and their attachments persist locally under
+`~/Library/Application Support/AskTheDuckTickets/<ticket-uuid>/` —
+one folder per ticket, containing `ticket.json` and every JPEG from the
+session. This is intentionally a drop-in backend: implement
+`TicketStoring` against Firebase/Firestore, DynamoDB, or a REST API when
+you're ready to sync across devices / franchises.
 
 ## Customization pointers
 

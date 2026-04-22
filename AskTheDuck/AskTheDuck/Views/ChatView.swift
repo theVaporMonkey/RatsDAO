@@ -8,6 +8,8 @@ struct ChatView: View {
 
     @State private var showingCameraPhoto = false
     @State private var showingCameraVideo = false
+    @State private var showingEscalate = false
+    @State private var showingEscalateConfirmation = false
     @State private var libraryItems: [PhotosPickerItem] = []
 
     var body: some View {
@@ -19,6 +21,16 @@ struct ChatView: View {
         .background(PoolDuckTheme.surface)
         .navigationTitle(viewModel.problem.rawValue)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showingEscalate = true
+                } label: {
+                    Label("Escalate", systemImage: "tray.and.arrow.up.fill")
+                }
+                .tint(PoolDuckTheme.deepTeal)
+            }
+        }
         .task {
             _ = await speech.requestAuthorization()
         }
@@ -45,23 +57,56 @@ struct ChatView: View {
             )
             .ignoresSafeArea()
         }
+        .sheet(isPresented: $showingEscalate) {
+            EscalateView(
+                viewModel: viewModel,
+                onSubmitted: { _ in
+                    showingEscalate = false
+                    showingEscalateConfirmation = true
+                },
+                onCancel: { showingEscalate = false }
+            )
+        }
+        .alert("Sent to office", isPresented: $showingEscalateConfirmation) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("The admin has everything they need to schedule a repair for \(viewModel.customer.name).")
+        }
     }
 
     private var header: some View {
-        HStack(spacing: 12) {
-            Image(systemName: viewModel.problem.systemIcon)
-                .font(.title3)
-                .foregroundStyle(.white)
-                .frame(width: 40, height: 40)
-                .background(Circle().fill(PoolDuckTheme.deepTeal))
-            VStack(alignment: .leading, spacing: 2) {
-                Text(viewModel.problem.rawValue).font(.headline)
-                Text("Powered by Claude").font(.caption).foregroundStyle(.secondary)
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 12) {
+                Image(systemName: viewModel.problem.systemIcon)
+                    .font(.title3)
+                    .foregroundStyle(.white)
+                    .frame(width: 40, height: 40)
+                    .background(Circle().fill(PoolDuckTheme.deepTeal))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(viewModel.problem.rawValue).font(.headline)
+                    Text("Powered by Claude").font(.caption).foregroundStyle(.secondary)
+                }
+                Spacer()
             }
-            Spacer()
+
+            if !viewModel.customer.name.isEmpty {
+                HStack(spacing: 6) {
+                    Image(systemName: "person.fill")
+                        .font(.caption)
+                        .foregroundStyle(PoolDuckTheme.deepTeal)
+                    Text(viewModel.customer.name)
+                        .font(.caption).bold()
+                    Text("·").foregroundStyle(.secondary)
+                    Text(viewModel.customer.address)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+            }
         }
         .padding(.horizontal)
         .padding(.vertical, 10)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(PoolDuckTheme.surfaceMuted)
     }
 

@@ -2,7 +2,16 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var auth: AuthViewModel
-    @State private var selectedProblem: ProblemType?
+    @State private var pickingProblem: ProblemType?
+    @State private var activeSession: ChatSession?
+
+    /// A problem + captured customer bundle, used to drive the navigation
+    /// path into `ChatView`.
+    struct ChatSession: Identifiable, Hashable {
+        let id = UUID()
+        let problem: ProblemType
+        let customer: CustomerInfo
+    }
 
     var body: some View {
         NavigationStack {
@@ -21,7 +30,7 @@ struct HomeView: View {
                     ) {
                         ForEach(ProblemType.allCases) { problem in
                             Button {
-                                selectedProblem = problem
+                                pickingProblem = problem
                             } label: {
                                 ProblemTile(problem: problem)
                             }
@@ -30,7 +39,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
 
-                    Text("Ask the Duck uses photos, video stills, and your spoken description to diagnose issues on the spot — so you don't have to call the office.")
+                    Text("Ask the Duck uses photos, video stills, and your spoken description to diagnose issues on the spot — so you don't have to call the office unless you need a truck roll.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -40,8 +49,26 @@ struct HomeView: View {
                 .padding(.vertical, 12)
             }
             .background(PoolDuckTheme.surface)
-            .navigationDestination(item: $selectedProblem) { problem in
-                ChatView(viewModel: ChatViewModel(problem: problem))
+            .navigationDestination(item: $activeSession) { session in
+                if let tech = auth.technician {
+                    ChatView(
+                        viewModel: ChatViewModel(
+                            problem: session.problem,
+                            customer: session.customer,
+                            technician: tech
+                        )
+                    )
+                }
+            }
+            .sheet(item: $pickingProblem) { problem in
+                CustomerInfoView(
+                    problem: problem,
+                    onContinue: { info in
+                        pickingProblem = nil
+                        activeSession = ChatSession(problem: problem, customer: info)
+                    },
+                    onCancel: { pickingProblem = nil }
+                )
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -126,8 +153,5 @@ private struct ProblemTile: View {
 }
 
 #Preview {
-    HomeView().environmentObject({
-        let vm = AuthViewModel()
-        return vm
-    }())
+    HomeView().environmentObject(AuthViewModel())
 }

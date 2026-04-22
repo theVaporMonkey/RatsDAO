@@ -18,9 +18,11 @@ struct MockAuthBackend: AuthBackend {
             )
         }
         try? await Task.sleep(nanoseconds: 400_000_000)
+        let role: Technician.Role = email.lowercased().contains("admin") ? .admin : .technician
         return Technician(
             id: UUID().uuidString,
             name: email.split(separator: "@").first.map(String.init) ?? "Technician",
+            role: role,
             franchiseLocation: "Pool Duck HQ",
             email: email
         )

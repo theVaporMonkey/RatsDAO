@@ -19,8 +19,13 @@ struct RootView: View {
 
     var body: some View {
         Group {
-            if auth.isSignedIn {
-                HomeView()
+            if let tech = auth.technician {
+                switch tech.role {
+                case .admin:
+                    AdminPanelView()
+                case .technician:
+                    HomeView()
+                }
             } else {
                 LoginView()
             }
