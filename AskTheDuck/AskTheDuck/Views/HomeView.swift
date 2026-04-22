@@ -4,13 +4,27 @@ struct HomeView: View {
     @EnvironmentObject var auth: AuthViewModel
     @State private var pickingProblem: ProblemType?
     @State private var activeSession: ChatSession?
+    @State private var showingHistory = false
+    @State private var startMode: StartMode = .troubleshoot
 
-    /// A problem + captured customer bundle, used to drive the navigation
-    /// path into `ChatView`.
+    enum StartMode: String, CaseIterable, Identifiable {
+        case troubleshoot = "Troubleshoot"
+        case quote = "Start a Quote"
+        var id: String { rawValue }
+
+        var icon: String {
+            switch self {
+            case .troubleshoot: return "stethoscope"
+            case .quote: return "doc.text.fill"
+            }
+        }
+    }
+
     struct ChatSession: Identifiable, Hashable {
         let id = UUID()
         let problem: ProblemType
         let customer: CustomerInfo
+        let startWithQuote: Bool
     }
 
     var body: some View {
@@ -19,7 +33,11 @@ struct HomeView: View {
                 VStack(spacing: 22) {
                     header
 
-                    Text("What are you looking at?")
+                    modeToggle
+
+                    Text(startMode == .troubleshoot
+                         ? "What are you looking at?"
+                         : "What kind of job are you quoting?")
                         .font(.title2.bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
@@ -39,7 +57,9 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
 
-                    Text("Ask the Duck uses photos, video stills, and your spoken description to diagnose issues on the spot — so you don't have to call the office unless you need a truck roll.")
+                    Text(startMode == .troubleshoot
+                         ? "Ask the Duck uses photos, video stills, and your spoken description to diagnose issues on the spot — so you don't have to call the office unless you need a truck roll."
+                         : "Capture the job, then let Claude draft a first-pass quote from what it sees. Pool Duck's default parts markup is 100% — adjust down only if the local market won't bear it.")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -52,11 +72,17 @@ struct HomeView: View {
             .navigationDestination(item: $activeSession) { session in
                 if let tech = auth.technician {
                     ChatView(
-                        viewModel: ChatViewModel(
-                            problem: session.problem,
-                            customer: session.customer,
-                            technician: tech
-                        )
+                        viewModel: {
+                            let vm = ChatViewModel(
+                                problem: session.problem,
+                                customer: session.customer,
+                                technician: tech
+                            )
+                            if session.startWithQuote {
+                                Task { await vm.startBlankQuote() }
+                            }
+                            return vm
+                        }()
                     )
                 }
             }
@@ -65,12 +91,30 @@ struct HomeView: View {
                     problem: problem,
                     onContinue: { info in
                         pickingProblem = nil
-                        activeSession = ChatSession(problem: problem, customer: info)
+                        activeSession = ChatSession(
+                            problem: problem,
+                            customer: info,
+                            startWithQuote: startMode == .quote
+                        )
                     },
                     onCancel: { pickingProblem = nil }
                 )
             }
+            .sheet(isPresented: $showingHistory) {
+                if let tech = auth.technician {
+                    HistoryView(viewModel: HistoryViewModel(technician: tech))
+                }
+            }
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingHistory = true
+                    } label: {
+                        Label("History", systemImage: "clock.arrow.circlepath")
+                            .labelStyle(.iconOnly)
+                    }
+                    .tint(PoolDuckTheme.deepTeal)
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         if let tech = auth.technician {
@@ -118,6 +162,16 @@ struct HomeView: View {
             .padding(.horizontal)
         }
     }
+
+    private var modeToggle: some View {
+        Picker("Mode", selection: $startMode) {
+            ForEach(StartMode.allCases) { mode in
+                Label(mode.rawValue, systemImage: mode.icon).tag(mode)
+            }
+        }
+        .pickerStyle(.segmented)
+        .padding(.horizontal)
+    }
 }
 
 private struct ProblemTile: View {
@@ -129,9 +183,7 @@ private struct ProblemTile: View {
                 .font(.system(size: 28, weight: .semibold))
                 .foregroundStyle(.white)
                 .frame(width: 52, height: 52)
-                .background(
-                    Circle().fill(PoolDuckTheme.deepTeal)
-                )
+                .background(Circle().fill(PoolDuckTheme.deepTeal))
             Text(problem.rawValue)
                 .font(.headline)
                 .foregroundStyle(PoolDuckTheme.inkBlack)

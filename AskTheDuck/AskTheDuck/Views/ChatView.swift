@@ -10,6 +10,7 @@ struct ChatView: View {
     @State private var showingCameraVideo = false
     @State private var showingEscalate = false
     @State private var showingEscalateConfirmation = false
+    @State private var showingQuote = false
     @State private var libraryItems: [PhotosPickerItem] = []
 
     var body: some View {
@@ -23,21 +24,46 @@ struct ChatView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    showingEscalate = true
+                Menu {
+                    Button {
+                        if viewModel.generatedQuote != nil {
+                            showingQuote = true
+                        } else {
+                            Task {
+                                await viewModel.generateQuote()
+                                if viewModel.generatedQuote != nil {
+                                    showingQuote = true
+                                }
+                            }
+                        }
+                    } label: {
+                        Label(
+                            viewModel.generatedQuote == nil
+                                ? "Generate repair quote"
+                                : "Open quote",
+                            systemImage: "doc.text.fill"
+                        )
+                    }
+                    Button { showingEscalate = true } label: {
+                        Label("Escalate to office", systemImage: "tray.and.arrow.up.fill")
+                    }
+                    Divider()
+                    Toggle(isOn: $viewModel.signalLimited) {
+                        Label("Signal is weak", systemImage: "antenna.radiowaves.left.and.right.slash")
+                    }
                 } label: {
-                    Label("Escalate", systemImage: "tray.and.arrow.up.fill")
+                    if viewModel.isGeneratingQuote {
+                        ProgressView()
+                    } else {
+                        Image(systemName: "ellipsis.circle.fill")
+                            .foregroundStyle(PoolDuckTheme.deepTeal)
+                    }
                 }
-                .tint(PoolDuckTheme.deepTeal)
             }
         }
-        .task {
-            _ = await speech.requestAuthorization()
-        }
+        .task { _ = await speech.requestAuthorization() }
         .onChange(of: speech.transcript) { _, newValue in
-            if speech.isRecording {
-                viewModel.inputText = newValue
-            }
+            if speech.isRecording { viewModel.inputText = newValue }
         }
         .sheet(isPresented: $showingCameraPhoto) {
             CameraPicker(
@@ -67,6 +93,18 @@ struct ChatView: View {
                 onCancel: { showingEscalate = false }
             )
         }
+        .sheet(isPresented: $showingQuote) {
+            if let quote = viewModel.generatedQuote {
+                QuoteView(
+                    quote: quote,
+                    onSave: { updated in
+                        await viewModel.save(updated)
+                        showingQuote = false
+                    },
+                    onClose: { showingQuote = false }
+                )
+            }
+        }
         .alert("Sent to office", isPresented: $showingEscalateConfirmation) {
             Button("OK", role: .cancel) {}
         } message: {
@@ -87,6 +125,14 @@ struct ChatView: View {
                     Text("Powered by Claude").font(.caption).foregroundStyle(.secondary)
                 }
                 Spacer()
+                if viewModel.signalLimited {
+                    Label("Low signal", systemImage: "antenna.radiowaves.left.and.right.slash")
+                        .font(.caption2.weight(.semibold))
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(Color.orange, in: Capsule())
+                        .foregroundStyle(.white)
+                }
             }
 
             if !viewModel.customer.name.isEmpty {
@@ -94,8 +140,7 @@ struct ChatView: View {
                     Image(systemName: "person.fill")
                         .font(.caption)
                         .foregroundStyle(PoolDuckTheme.deepTeal)
-                    Text(viewModel.customer.name)
-                        .font(.caption).bold()
+                    Text(viewModel.customer.name).font(.caption).bold()
                     Text("·").foregroundStyle(.secondary)
                     Text(viewModel.customer.address)
                         .font(.caption)
@@ -140,6 +185,14 @@ struct ChatView: View {
 
     private var composer: some View {
         VStack(spacing: 10) {
+            if shouldShowVideoNudge {
+                VideoNudgeBanner(
+                    onRecord: { showingCameraVideo = true },
+                    onDismiss: { viewModel.signalLimited = true }
+                )
+                .transition(.opacity)
+            }
+
             if !viewModel.pendingAttachments.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
@@ -155,11 +208,11 @@ struct ChatView: View {
 
             HStack(alignment: .bottom, spacing: 8) {
                 Menu {
+                    Button { showingCameraVideo = true } label: {
+                        Label("Record Video (preferred)", systemImage: "video.fill")
+                    }
                     Button { showingCameraPhoto = true } label: {
                         Label("Take Photo", systemImage: "camera.fill")
-                    }
-                    Button { showingCameraVideo = true } label: {
-                        Label("Record Video", systemImage: "video.fill")
                     }
                     LibraryPicker(selection: $libraryItems) { image, url in
                         if let image { viewModel.attach(image: image) }
@@ -181,11 +234,7 @@ struct ChatView: View {
                     .lineLimit(1...5)
 
                 Button {
-                    if speech.isRecording {
-                        speech.stop()
-                    } else {
-                        speech.start()
-                    }
+                    if speech.isRecording { speech.stop() } else { speech.start() }
                 } label: {
                     Image(systemName: speech.isRecording ? "mic.fill" : "mic")
                         .font(.system(size: 24))
@@ -205,6 +254,7 @@ struct ChatView: View {
             .padding(.horizontal)
             .padding(.bottom, 10)
         }
+        .animation(.easeInOut, value: shouldShowVideoNudge)
         .background(
             PoolDuckTheme.surface
                 .shadow(color: .black.opacity(0.08), radius: 6, y: -2)
@@ -212,10 +262,66 @@ struct ChatView: View {
         )
     }
 
+    /// Nudge only when (a) signal isn't limited, (b) the session has no
+    /// attachments yet, and (c) the conversation is still early (≤1
+    /// tech message). We don't want to spam it after the tech's been
+    /// typing for a while.
+    private var shouldShowVideoNudge: Bool {
+        !viewModel.signalLimited &&
+        viewModel.pendingAttachments.isEmpty &&
+        !viewModel.messages.contains { $0.role == .technician && !$0.attachments.isEmpty } &&
+        viewModel.messages.filter({ $0.role == .technician }).count <= 1
+    }
+
     private var canSend: Bool {
         !viewModel.isSending &&
         (!viewModel.inputText.trimmingCharacters(in: .whitespaces).isEmpty ||
          !viewModel.pendingAttachments.isEmpty)
+    }
+}
+
+private struct VideoNudgeBanner: View {
+    let onRecord: () -> Void
+    let onDismiss: () -> Void
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: "video.fill")
+                .font(.title3)
+                .foregroundStyle(.white)
+                .frame(width: 40, height: 40)
+                .background(Circle().fill(PoolDuckTheme.duckGreen))
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("A 10-second video helps more than a photo.")
+                    .font(.subheadline.weight(.semibold))
+                Text("Pan the equipment while it's running — sound included.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            Spacer()
+
+            Button("Record", action: onRecord)
+                .buttonStyle(.borderedProminent)
+                .tint(PoolDuckTheme.deepTeal)
+                .controlSize(.small)
+
+            Button {
+                onDismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(.secondary)
+                    .padding(6)
+            }
+        }
+        .padding(10)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(PoolDuckTheme.surfaceMuted)
+        )
+        .padding(.horizontal)
     }
 }
 

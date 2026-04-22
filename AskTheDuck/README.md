@@ -1,40 +1,77 @@
 # Ask the Duck
 
-Native iOS (SwiftUI) companion app for **Pool Duck** technicians and franchisees.
-Sign in, snap a photo or short video of the equipment / water / problem,
-speak or type what you're seeing, and get an AI-assisted answer from Claude
-— right there on the deck.
+Native iOS (SwiftUI) companion app for **Pool Duck** technicians and
+franchisees. Sign in, snap a photo or short video of the equipment /
+water / problem, speak or type what you're seeing, and get an
+AI-assisted answer from Claude — right there on the deck.
 
 ## Features
 
-- **Pool Duck branded UI** — teal/green gradient, duck mascot, and on-brand
-  typography throughout.
-- **Technician & admin sign-in** — pluggable `AuthBackend` (ships with a
-  mock; swap for Firebase / Cognito / the franchise portal). Email
+- **Pool Duck branded UI** — teal/green gradient, duck mascot, and
+  on-brand typography throughout.
+- **Technician & admin sign-in** — pluggable `AuthBackend` (ships with
+  a mock; swap for Firebase / Cognito / the franchise portal). Email
   containing `admin` signs in as admin in the mock backend.
-- **Problem-type selection** — Equipment, Water Chemistry, Troubleshooting,
-  Leak / Structure, Automation & Controls, Other. Each one steers Claude
-  with a tailored system prompt.
-- **Customer capture** — every service call starts by capturing customer
-  name, address, and phone. That info travels with the ticket if it
-  escalates.
-- **Photo & video capture** — built-in camera for photos or up-to-60-second
-  video, plus Photos library picker for existing media. Videos are sent as
-  a representative still frame (Claude's vision API accepts images).
-- **Speech-to-text** — on-device `SFSpeechRecognizer` so a tech with wet
-  hands can just tap the mic and talk.
-- **Claude integration** — calls `/v1/messages` with multi-modal content
-  blocks. System prompt asks Claude to answer like "a seasoned pool pro
-  talking to a teammate on a job site" with a consistent Likely-Cause /
-  Check / Fix / Escalate structure.
+- **Problem-type selection** — Equipment, Water Chemistry,
+  Troubleshooting, Leak / Structure, Automation & Controls, Other.
+  Each one steers Claude with a tailored system prompt.
+- **Pool Duck Way playbook** — one central `playbook.md` (bundled in
+  the app) is injected into every Claude call so advice stays
+  consistent across techs, franchises, and locations. The playbook
+  covers audience (tech, not homeowner), diagnostic order, repair
+  process, escalation triggers, and markup / pricing policy. Drop in
+  the real FDD / Franchise Operations Manual derivations when they're
+  ready (see **Playbook** section below).
+- **Customer capture** — every service call starts with name, service
+  address, and phone. Prior visits at the same customer surface as
+  the tech types.
+- **Service history & search** — every chat session is persisted as a
+  `ServiceRecord`. From the home screen, tap the clock icon to search
+  past sessions by customer, address, phone, or any keyword. Filter by
+  "mine" vs. the whole franchise.
+- **Photo & video capture** — built-in camera for photos or
+  up-to-60-second video, plus Photos library picker. Videos are
+  encouraged — a prominent banner in the composer nudges the tech to
+  shoot a 10-second clip with the equipment running. A **Low signal**
+  toggle (in the chat's `…` menu) suppresses the nudge when cellular
+  is weak.
+- **Speech-to-text** — on-device `SFSpeechRecognizer` so a tech with
+  wet hands can just tap the mic and talk.
+- **Claude integration** — calls `/v1/messages` with multi-modal
+  content blocks, governed by the playbook system prompt. Response
+  format is always Likely cause / Check / Fix / Escalate.
+- **Repair quoting** — tech can generate a repair quote from the chat
+  (Claude extracts line items + labor) or start a quote from the
+  problem-selection screen. Pool Duck's default is **100% markup** on
+  parts; the tech can pull that down with a local-market note
+  explaining why. Full quote editor with parts / labor / markup slider
+  / totals.
 - **Escalate to office** — if Claude can't crack it, the tech taps
-  "Escalate." The summary, troubleshooting steps already tried, full chat
-  transcript, every photo/video still, and the customer's contact info
-  are bundled into a ticket and dropped in the admin queue.
-- **Admin panel** — admins see a list of tickets filterable by Pending /
-  Scheduled / Completed, with full detail (customer, photos, chat
-  transcript, tech notes) and one-tap scheduling for a repair with
-  optional notes back to the tech.
+  Escalate. Summary, steps already tried, chat transcript, every
+  photo/video still, and customer contact info bundle into a ticket
+  for the admin queue.
+- **Admin panel** — admins see a filterable inbox (Pending / Scheduled
+  / Completed) with ticket detail (customer with tap-to-call, all
+  photos, full transcript, tech notes) and one-tap scheduling with
+  notes back to the tech.
+
+## Playbook — where the "Pool Duck way" lives
+
+`AskTheDuck/Resources/playbook.md` is the single source of truth for
+how Claude is told to behave. Every Claude call injects this file into
+the system prompt, so advice stays aligned franchise-wide.
+
+**The committed `playbook.md` is a placeholder** — reasonable pool-
+industry convention written in the Pool Duck voice. Before shipping:
+
+1. Drop the real FDD / FOM PDFs into `docs/source/` (gitignored —
+   raw documents never hit the repo).
+2. Ask Claude Code to extract the tech-relevant sections (repair
+   process, audience, escalation triggers, safety, markup policy) and
+   rewrite `playbook.md`.
+3. Legal / ops reviews the derived playbook before cutting a build.
+
+See `docs/README.md` for the ingestion workflow.
 
 ## Project layout
 
@@ -45,30 +82,44 @@ AskTheDuck/
     ├── AskTheDuckApp.swift          # @main entry point + role routing
     ├── Info.plist
     ├── Assets.xcassets/             # Brand colors + DuckLogo image slot
+    ├── Resources/
+    │   └── playbook.md              # Pool Duck Way (injected into Claude)
     ├── Theme/PoolDuckTheme.swift
     ├── Models/
     │   ├── ProblemType.swift
     │   ├── Message.swift            # Technician (with role), ChatMessage
-    │   ├── CustomerInfo.swift       # Name / address / phone
-    │   └── Ticket.swift             # EscalationTicket + TicketMessage
+    │   ├── CustomerInfo.swift
+    │   ├── Ticket.swift             # EscalationTicket + TicketMessage
+    │   ├── ServiceRecord.swift      # Auto-saved chat history
+    │   └── Quote.swift              # Parts + labor + markup
     ├── Services/
-    │   ├── ClaudeService.swift      # Anthropic Messages API (vision)
-    │   ├── SpeechService.swift      # SFSpeechRecognizer wrapper
-    │   ├── MediaService.swift       # Image resize + video thumbnail
-    │   ├── AuthService.swift        # Pluggable backend (mock included)
-    │   └── TicketStore.swift        # Local JSON + attachment persistence
+    │   ├── ClaudeService.swift      # Messages API (vision)
+    │   ├── SpeechService.swift
+    │   ├── MediaService.swift
+    │   ├── AuthService.swift
+    │   ├── TicketStore.swift        # Escalation tickets
+    │   ├── HistoryStore.swift       # All service records
+    │   ├── QuoteStore.swift
+    │   ├── QuoteService.swift       # Claude-powered quote drafting
+    │   ├── PoolDuckPlaybook.swift   # Loads + injects playbook.md
+    │   └── Integrations/
+    │       ├── PoolBrainSync.swift       # Stub — next release
+    │       └── CustomerNotifier.swift    # Stub — next release
     ├── ViewModels/
     │   ├── AuthViewModel.swift
-    │   ├── ChatViewModel.swift      # Chat + escalate flow
-    │   └── AdminViewModel.swift     # Ticket list + scheduling
+    │   ├── ChatViewModel.swift
+    │   ├── AdminViewModel.swift
+    │   └── HistoryViewModel.swift
     └── Views/
         ├── LoginView.swift
-        ├── HomeView.swift
-        ├── CustomerInfoView.swift   # Captured before every chat
-        ├── ChatView.swift
-        ├── EscalateView.swift       # "Send to office" sheet
-        ├── AdminPanelView.swift     # Ticket inbox
-        ├── TicketDetailView.swift   # Photos + transcript + scheduling
+        ├── HomeView.swift           # Troubleshoot vs. Quote mode
+        ├── CustomerInfoView.swift   # Prior-visit matches live
+        ├── ChatView.swift           # Quote button, video nudge, signal toggle
+        ├── EscalateView.swift
+        ├── AdminPanelView.swift
+        ├── TicketDetailView.swift
+        ├── HistoryView.swift        # Search past sessions
+        ├── QuoteView.swift          # Full quote editor
         ├── MediaPickers.swift
         └── Components/DuckLogo.swift
 ```
@@ -76,95 +127,83 @@ AskTheDuck/
 ## Prerequisites
 
 - Xcode 15.3+
-- iOS 17.0+ deployment target
-- An Anthropic API key (https://console.anthropic.com/)
+- iOS 17.0+
+- Anthropic API key (https://console.anthropic.com/)
 
 ## Setup
 
 1. Open `AskTheDuck/AskTheDuck.xcodeproj` in Xcode.
-2. Select the `AskTheDuck` target, then **Signing & Capabilities** — set your
-   team and a unique bundle identifier (default: `com.poolduck.asktheduck`).
-3. **Add your Claude API key.** The recommended flow:
-   - Copy `AskTheDuck/Secrets.xcconfig.template` to
-     `AskTheDuck/Secrets.xcconfig` (gitignored) and fill in your key.
-   - In the project editor → **Info** tab → **Configurations** → set
-     both Debug and Release to use `Secrets.xcconfig`.
-   - `Info.plist` already reads `$(CLAUDE_API_KEY)` at build time.
-   - **Production recommendation:** do NOT ship the key in the app binary.
-     Stand up a small proxy (Vercel / Cloudflare Worker / Lambda) that
-     holds the key server-side and forwards requests, then point
-     `CLAUDE_ENDPOINT` at that proxy.
-4. **Drop in the brand logo.** Replace
-   `AskTheDuck/Assets.xcassets/DuckLogo.imageset/duck-logo.png` (any
-   resolution — 1024×1024 PNG is ideal). Until you do, the app renders
-   a vector fallback silhouette of the duck.
-5. Build & run on an iPhone (camera / mic / speech need a real device or
-   a simulator with fake audio).
+2. Select the `AskTheDuck` target → **Signing & Capabilities** → set
+   your team and a unique bundle identifier (default:
+   `com.poolduck.asktheduck`).
+3. Copy `AskTheDuck/Secrets.xcconfig.template` →
+   `AskTheDuck/Secrets.xcconfig` (gitignored) and fill in your key.
+   Wire it via Project → Info → Configurations (Debug + Release).
+   **Production:** put the key behind a proxy instead of shipping in
+   the binary.
+4. Drop your real logo at
+   `AskTheDuck/Assets.xcassets/DuckLogo.imageset/duck-logo.png`.
+5. When you're ready to swap in the real playbook, follow
+   `docs/README.md`.
+6. Build & run on a device (camera / mic / speech need real hardware).
 
 ## Flows
 
 ### Technician flow
-1. Sign in (any email without `admin` in it → technician role).
-2. Tap a problem tile on the home grid.
-3. Enter the customer's name, service address, and phone.
-4. Chat with Claude — snap photos, record short video clips, speak or type
-   your question. Claude responds with a consistent Likely-cause / Check /
-   Fix / Escalate-if structure.
-5. If you can't resolve it on site, tap **Escalate** in the top-right.
-   Describe the issue in one paragraph, note what you already tried
-   (there's a "Paste Claude's guidance" shortcut), and submit. Everything
-   — customer info, photos, chat transcript, your notes — goes to the
+1. Sign in (any email without `admin` → technician role).
+2. Pick **Troubleshoot** or **Start a Quote** at the top of the home
+   screen.
+3. Tap a problem tile. Enter customer name, address, phone. If the tech
+   has been to this customer before, prior visits appear inline — tap
+   one to pre-fill.
+4. Chat with Claude. Capture video (preferred) or photos, speak or
+   type. Claude responds in the Likely cause / Check / Fix / Escalate
+   format governed by the playbook.
+5. **Quote**: tap `…` → "Generate repair quote." Claude drafts line
+   items + labor from the transcript, applies 100% markup by default.
+   Edit parts, pull markup down per local market with a required note,
+   save.
+6. **Can't resolve?** Tap `…` → "Escalate to office." The whole
+   session (customer, transcript, photos, your notes) lands in the
    admin queue.
+7. **Looking up past work?** Tap the clock icon on the home screen to
+   search history by customer / address / keyword.
 
 ### Admin flow
-1. Sign in with an email that contains `admin` (e.g.
-   `dispatch@admin.poolduck.com`).
-2. The Admin Panel shows every escalated ticket, filterable by Pending /
-   Scheduled / Completed.
-3. Tap a ticket to see the customer info (with tap-to-call), the photos
-   and video stills, and the full chat transcript between the tech and
-   Claude.
-4. Hit **Schedule repair** to pick a date/time and add dispatch notes for
-   the technician, or **Mark done** once the repair is completed.
+1. Sign in with `admin` in the email.
+2. Filterable inbox of escalated tickets.
+3. Ticket detail has tap-to-call customer phone, all photos, full
+   transcript, tech notes. Hit **Schedule repair** with date/time +
+   notes back to the tech, or **Mark done**.
 
-### Storage
+## Storage
 
-Tickets and their attachments persist locally under
-`~/Library/Application Support/AskTheDuckTickets/<ticket-uuid>/` —
-one folder per ticket, containing `ticket.json` and every JPEG from the
-session. This is intentionally a drop-in backend: implement
-`TicketStoring` against Firebase/Firestore, DynamoDB, or a REST API when
-you're ready to sync across devices / franchises.
+Everything persists locally under `~/Library/Application Support/`:
 
-## Customization pointers
+- `AskTheDuckHistory/<record-uuid>/` — one folder per session
+  (record.json + attachment JPEGs).
+- `AskTheDuckTickets/<ticket-uuid>/` — escalated tickets.
+- `AskTheDuckQuotes/*.json` — saved quotes.
 
-- **Colors:** tweak `PoolDuckTheme.swift` and the matching `.colorset`
-  entries in the asset catalog.
-- **Problem types:** add cases to `ProblemType` in `Models/ProblemType.swift`
-  — the home grid, chat header, and system prompt all pick them up
-  automatically.
-- **Claude model:** change `CLAUDE_MODEL` in `Info.plist` /
-  `Secrets.xcconfig`. Default is `claude-sonnet-4-6`. Bump to
-  `claude-opus-4-7` for tougher chemistry questions if latency allows.
-- **Auth backend:** implement the `AuthBackend` protocol in
-  `Services/AuthService.swift` and inject it into `AuthViewModel`.
+Every store implements a protocol (`HistoryStoring`, `TicketStoring`,
+`QuoteStoring`) — swap for Firebase / Firestore / REST when syncing
+across the franchise.
 
-## Permissions
+## Roadmap (future releases)
 
-`Info.plist` already declares all required strings:
-- `NSCameraUsageDescription`
-- `NSMicrophoneUsageDescription`
-- `NSSpeechRecognitionUsageDescription`
-- `NSPhotoLibraryUsageDescription`
-- `NSPhotoLibraryAddUsageDescription`
+These are stubbed out in code so the call sites are already in place:
 
-## Next steps worth considering
-
-- Per-franchise branding (logo + accent color pulled from a config
-  endpoint so each franchisee can customize their own theme).
-- Offline queue: photos captured without signal get sent once the truck
-  rolls back into range.
-- Job tagging: attach the address / customer from the day's route so
-  Claude's answers can be pinned to a service record.
-- Analytics: anonymized "most common questions" per franchise to feed
-  training/ops.
+- **Pool Brain two-way sync** (`Services/Integrations/PoolBrainSync.swift`) —
+  push service records + tickets into Pool Brain as work orders, pull
+  tech reassignments / reschedules back in.
+- **Customer email + SMS notifications** (`CustomerNotifier.swift`) —
+  once admin schedules a repair, automatically email / text the
+  customer. Post-visit, send a homeowner-friendly summary generated by
+  a separate Claude call that translates the tech-facing transcript
+  into plain language. TCPA / CAN-SPAM compliance reminders are in the
+  stub file.
+- **Per-franchise playbook overrides** — layer a franchise-specific
+  overlay on top of the master `playbook.md` for local markup,
+  pricing, and state rules.
+- **Remote playbook config** — fetch playbook updates without a
+  TestFlight push.

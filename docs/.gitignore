@@ -1,0 +1,11 @@
+# Keep the raw FDD / Franchise Operations Manual out of git. These are
+# proprietary, legally-sensitive documents. Drop PDFs / DOCX into this
+# folder when you want me to extract tech-relevant sections into
+# `AskTheDuck/AskTheDuck/Resources/playbook.md`.
+#
+# Only the *derived* playbook.md is committed. The raw source stays local.
+source/
+*.pdf
+*.docx
+*.doc
+*.pages
