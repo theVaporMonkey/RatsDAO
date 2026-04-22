@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Ask the Duck</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>PoolDuckTeal</string>
+	</dict>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Ask the Duck uses the camera so technicians can capture photos and short videos of pool equipment, water conditions, and problem areas to get AI-assisted troubleshooting on the spot.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Ask the Duck uses the microphone so technicians can speak their question instead of typing while their hands are wet or full.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Ask the Duck transcribes your spoken description of the issue so it can be sent to the AI assistant.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ask the Duck lets technicians attach existing photos or videos from the library to their question.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Ask the Duck saves captured diagnostic photos and videos to your library for your records.</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>CLAUDE_API_KEY</key>
+	<string>$(CLAUDE_API_KEY)</string>
+	<key>CLAUDE_MODEL</key>
+	<string>claude-sonnet-4-6</string>
+	<key>CLAUDE_ENDPOINT</key>
+	<string>https://api.anthropic.com/v1/messages</string>
+</dict>
+</plist>

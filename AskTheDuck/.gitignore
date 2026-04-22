@@ -1,0 +1,21 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserdatad/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# SwiftPM
+.swiftpm/
+.build/
+Packages/
+Package.resolved
+
+# Local secrets — never commit real API keys
+AskTheDuck/Secrets.xcconfig
+*.keystore
+
+# macOS
+.DS_Store
